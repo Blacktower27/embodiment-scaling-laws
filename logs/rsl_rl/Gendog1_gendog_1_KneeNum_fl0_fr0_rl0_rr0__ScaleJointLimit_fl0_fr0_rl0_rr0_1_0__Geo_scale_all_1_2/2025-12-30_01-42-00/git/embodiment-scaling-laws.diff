@@ -1,0 +1,473 @@
+--- git status ---
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   exts/embodiment_scaling_laws/embodiment_scaling_laws/assets/gen_hexapods.py
+	modified:   exts/embodiment_scaling_laws/embodiment_scaling_laws/assets/gen_humanoids.py
+	modified:   exts/embodiment_scaling_laws/embodiment_scaling_laws/assets/gen_quadrupeds.py
+	modified:   exts/embodiment_scaling_laws/embodiment_scaling_laws/assets/unitree.py
+	modified:   exts/embodiment_scaling_laws/embodiment_scaling_laws/tasks/configs/algorithm/default_ppo_cfg.py
+	modified:   exts/embodiment_scaling_laws/embodiment_scaling_laws/tasks/configs/algorithm/gen_quadruped_1k_ppo_cfg.py
+	modified:   exts/embodiment_scaling_laws/embodiment_scaling_laws/tasks/configs/environment/gen_hexapods_cfg.py
+	modified:   exts/embodiment_scaling_laws/embodiment_scaling_laws/tasks/configs/environment/gen_humanoid_cfg.py
+	modified:   exts/embodiment_scaling_laws/embodiment_scaling_laws/tasks/configs/environment/gen_quadrupeds_cfg.py
+	modified:   exts/embodiment_scaling_laws/embodiment_scaling_laws/tasks/configs/environment/go2_cfg.py
+	modified:   exts/embodiment_scaling_laws/embodiment_scaling_laws/tasks/configs/environment/h1_cfg.py
+	modified:   exts/embodiment_scaling_laws/embodiment_scaling_laws/tasks/environments/locomotion_env.py
+	modified:   pyproject.toml
+	modified:   rsl_rl/rsl_rl/env/isaac_lab_vec_env.py
+	modified:   scripts/cli_args.py
+	modified:   scripts/expert/train.py
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	exts/embodiment_scaling_laws/embodiment_scaling_laws.egg-info/
+	exts/embodiment_scaling_laws/embodiment_scaling_laws/__pycache__/
+	exts/embodiment_scaling_laws/embodiment_scaling_laws/assets/Robots/GenBot1K-v7/
+	exts/embodiment_scaling_laws/embodiment_scaling_laws/assets/__pycache__/
+	exts/embodiment_scaling_laws/embodiment_scaling_laws/tasks/__pycache__/
+	exts/embodiment_scaling_laws/embodiment_scaling_laws/tasks/configs/__pycache__/
+	exts/embodiment_scaling_laws/embodiment_scaling_laws/tasks/configs/algorithm/__pycache__/
+	exts/embodiment_scaling_laws/embodiment_scaling_laws/tasks/configs/environment/__pycache__/
+	exts/embodiment_scaling_laws/embodiment_scaling_laws/tasks/environments/__pycache__/
+	exts/embodiment_scaling_laws/pyproject.toml
+	logs/
+	rsl_rl/rsl_rl.egg-info/
+	rsl_rl/rsl_rl/__pycache__/
+	rsl_rl/rsl_rl/algorithms/__pycache__/
+	rsl_rl/rsl_rl/env/__pycache__/
+	rsl_rl/rsl_rl/modules/__pycache__/
+	rsl_rl/rsl_rl/runners/__pycache__/
+	rsl_rl/rsl_rl/storage/__pycache__/
+	rsl_rl/rsl_rl/utils/__pycache__/
+	scripts/__pycache__/
+
+no changes added to commit (use "git add" and/or "git commit -a") 
+
+
+--- git diff ---
+diff --git a/exts/embodiment_scaling_laws/embodiment_scaling_laws/assets/gen_hexapods.py b/exts/embodiment_scaling_laws/embodiment_scaling_laws/assets/gen_hexapods.py
+index 5d8d53a..fb5311b 100644
+--- a/exts/embodiment_scaling_laws/embodiment_scaling_laws/assets/gen_hexapods.py
++++ b/exts/embodiment_scaling_laws/embodiment_scaling_laws/assets/gen_hexapods.py
+@@ -1,7 +1,7 @@
+-import omni.isaac.lab.sim as sim_utils
+-from omni.isaac.lab.actuators import ActuatorNetMLPCfg, DCMotorCfg, ImplicitActuatorCfg
+-from omni.isaac.lab.assets.articulation import ArticulationCfg
+-from omni.isaac.lab.utils.assets import ISAACLAB_NUCLEUS_DIR
++import isaaclab.sim as sim_utils
++from isaaclab.actuators import ActuatorNetMLPCfg, DCMotorCfg, ImplicitActuatorCfg
++from isaaclab.assets.articulation import ArticulationCfg
++from isaaclab.utils.assets import ISAACLAB_NUCLEUS_DIR
+ 
+ from embodiment_scaling_laws.assets import ISAAC_ASSET_DIR
+ 
+diff --git a/exts/embodiment_scaling_laws/embodiment_scaling_laws/assets/gen_humanoids.py b/exts/embodiment_scaling_laws/embodiment_scaling_laws/assets/gen_humanoids.py
+index 62ffdfe..df43f14 100644
+--- a/exts/embodiment_scaling_laws/embodiment_scaling_laws/assets/gen_humanoids.py
++++ b/exts/embodiment_scaling_laws/embodiment_scaling_laws/assets/gen_humanoids.py
+@@ -1,7 +1,7 @@
+-import omni.isaac.lab.sim as sim_utils
+-from omni.isaac.lab.actuators import ActuatorNetMLPCfg, DCMotorCfg, ImplicitActuatorCfg
+-from omni.isaac.lab.assets.articulation import ArticulationCfg
+-from omni.isaac.lab.utils.assets import ISAACLAB_NUCLEUS_DIR
++import isaaclab.sim as sim_utils
++from isaaclab.actuators import ActuatorNetMLPCfg, DCMotorCfg, ImplicitActuatorCfg
++from isaaclab.assets.articulation import ArticulationCfg
++from isaaclab.utils.assets import ISAACLAB_NUCLEUS_DIR
+ 
+ from embodiment_scaling_laws.assets import ISAAC_ASSET_DIR
+ 
+diff --git a/exts/embodiment_scaling_laws/embodiment_scaling_laws/assets/gen_quadrupeds.py b/exts/embodiment_scaling_laws/embodiment_scaling_laws/assets/gen_quadrupeds.py
+index e41b7e1..78beae0 100644
+--- a/exts/embodiment_scaling_laws/embodiment_scaling_laws/assets/gen_quadrupeds.py
++++ b/exts/embodiment_scaling_laws/embodiment_scaling_laws/assets/gen_quadrupeds.py
+@@ -1,7 +1,7 @@
+-import omni.isaac.lab.sim as sim_utils
+-from omni.isaac.lab.actuators import ActuatorNetMLPCfg, DCMotorCfg, ImplicitActuatorCfg
+-from omni.isaac.lab.assets.articulation import ArticulationCfg
+-from omni.isaac.lab.utils.assets import ISAACLAB_NUCLEUS_DIR
++import isaaclab.sim as sim_utils
++from isaaclab.actuators import ActuatorNetMLPCfg, DCMotorCfg, ImplicitActuatorCfg
++from isaaclab.assets.articulation import ArticulationCfg
++from isaaclab.utils.assets import ISAACLAB_NUCLEUS_DIR
+ 
+ from embodiment_scaling_laws.assets import ISAAC_ASSET_DIR
+ 
+diff --git a/exts/embodiment_scaling_laws/embodiment_scaling_laws/assets/unitree.py b/exts/embodiment_scaling_laws/embodiment_scaling_laws/assets/unitree.py
+index dcafbdd..7652d63 100644
+--- a/exts/embodiment_scaling_laws/embodiment_scaling_laws/assets/unitree.py
++++ b/exts/embodiment_scaling_laws/embodiment_scaling_laws/assets/unitree.py
+@@ -18,10 +18,10 @@ The following configurations are available:
+ Reference: https://github.com/unitreerobotics/unitree_ros
+ """
+ 
+-import omni.isaac.lab.sim as sim_utils
+-from omni.isaac.lab.actuators import ActuatorNetMLPCfg, DCMotorCfg, ImplicitActuatorCfg
+-from omni.isaac.lab.assets.articulation import ArticulationCfg
+-from omni.isaac.lab.utils.assets import ISAACLAB_NUCLEUS_DIR
++import isaaclab.sim as sim_utils
++from isaaclab.actuators import ActuatorNetMLPCfg, DCMotorCfg, ImplicitActuatorCfg
++from isaaclab.assets.articulation import ArticulationCfg
++from isaaclab.utils.assets import ISAACLAB_NUCLEUS_DIR
+ 
+ from embodiment_scaling_laws.assets import ISAAC_ASSET_DIR
+ 
+diff --git a/exts/embodiment_scaling_laws/embodiment_scaling_laws/tasks/configs/algorithm/default_ppo_cfg.py b/exts/embodiment_scaling_laws/embodiment_scaling_laws/tasks/configs/algorithm/default_ppo_cfg.py
+index 02a8fa4..2bd0dac 100644
+--- a/exts/embodiment_scaling_laws/embodiment_scaling_laws/tasks/configs/algorithm/default_ppo_cfg.py
++++ b/exts/embodiment_scaling_laws/embodiment_scaling_laws/tasks/configs/algorithm/default_ppo_cfg.py
+@@ -3,7 +3,7 @@
+ #
+ # SPDX-License-Identifier: BSD-3-Clause
+ 
+-from omni.isaac.lab.utils import configclass
++from isaaclab.utils import configclass
+ 
+ @configclass
+ class PolicyCfg:
+diff --git a/exts/embodiment_scaling_laws/embodiment_scaling_laws/tasks/configs/algorithm/gen_quadruped_1k_ppo_cfg.py b/exts/embodiment_scaling_laws/embodiment_scaling_laws/tasks/configs/algorithm/gen_quadruped_1k_ppo_cfg.py
+index 36fd0f9..e8a83b8 100644
+--- a/exts/embodiment_scaling_laws/embodiment_scaling_laws/tasks/configs/algorithm/gen_quadruped_1k_ppo_cfg.py
++++ b/exts/embodiment_scaling_laws/embodiment_scaling_laws/tasks/configs/algorithm/gen_quadruped_1k_ppo_cfg.py
+@@ -1,4 +1,4 @@
+-from omni.isaac.lab.utils import configclass
++from isaaclab.utils import configclass
+ 
+ from embodiment_scaling_laws.tasks.configs.algorithm.default_ppo_cfg import DefaultPPORunnerCfg
+ 
+diff --git a/exts/embodiment_scaling_laws/embodiment_scaling_laws/tasks/configs/environment/gen_hexapods_cfg.py b/exts/embodiment_scaling_laws/embodiment_scaling_laws/tasks/configs/environment/gen_hexapods_cfg.py
+index b42b34c..38152e7 100644
+--- a/exts/embodiment_scaling_laws/embodiment_scaling_laws/tasks/configs/environment/gen_hexapods_cfg.py
++++ b/exts/embodiment_scaling_laws/embodiment_scaling_laws/tasks/configs/environment/gen_hexapods_cfg.py
+@@ -2,15 +2,15 @@ from __future__ import annotations
+ 
+ from dataclasses import MISSING
+ 
+-import omni.isaac.lab.sim as sim_utils
+-from omni.isaac.lab.assets import ArticulationCfg
+-from omni.isaac.lab.envs import DirectRLEnvCfg
+-from omni.isaac.lab.managers import SceneEntityCfg
+-from omni.isaac.lab.scene import InteractiveSceneCfg
+-from omni.isaac.lab.sensors import ContactSensorCfg
+-from omni.isaac.lab.sim import SimulationCfg
+-from omni.isaac.lab.terrains import TerrainImporterCfg
+-from omni.isaac.lab.utils import configclass
++import isaaclab.sim as sim_utils
++from isaaclab.assets import ArticulationCfg
++from isaaclab.envs import DirectRLEnvCfg
++from isaaclab.managers import SceneEntityCfg
++from isaaclab.scene import InteractiveSceneCfg
++from isaaclab.sensors import ContactSensorCfg
++from isaaclab.sim import SimulationCfg
++from isaaclab.terrains import TerrainImporterCfg
++from isaaclab.utils import configclass
+ 
+ from embodiment_scaling_laws.assets.gen_hexapods import *
+ 
+@@ -29,7 +29,7 @@ class GenHexapodEnvCfg(DirectRLEnvCfg):
+     sim: SimulationCfg = SimulationCfg(
+         dt=dt,
+         render_interval=decimation,
+-        disable_contact_processing=True,
++        # disable_contact_processing=True,
+     )
+     terrain = TerrainImporterCfg(
+         prim_path="/World/ground",
+diff --git a/exts/embodiment_scaling_laws/embodiment_scaling_laws/tasks/configs/environment/gen_humanoid_cfg.py b/exts/embodiment_scaling_laws/embodiment_scaling_laws/tasks/configs/environment/gen_humanoid_cfg.py
+index 3698b9c..0b452b5 100644
+--- a/exts/embodiment_scaling_laws/embodiment_scaling_laws/tasks/configs/environment/gen_humanoid_cfg.py
++++ b/exts/embodiment_scaling_laws/embodiment_scaling_laws/tasks/configs/environment/gen_humanoid_cfg.py
+@@ -2,15 +2,15 @@ from __future__ import annotations
+ 
+ from dataclasses import MISSING
+ 
+-import omni.isaac.lab.sim as sim_utils
+-from omni.isaac.lab.assets import ArticulationCfg
+-from omni.isaac.lab.envs import DirectRLEnvCfg
+-from omni.isaac.lab.managers import SceneEntityCfg
+-from omni.isaac.lab.scene import InteractiveSceneCfg
+-from omni.isaac.lab.sensors import ContactSensorCfg
+-from omni.isaac.lab.sim import SimulationCfg
+-from omni.isaac.lab.terrains import TerrainImporterCfg
+-from omni.isaac.lab.utils import configclass
++import isaaclab.sim as sim_utils
++from isaaclab.assets import ArticulationCfg
++from isaaclab.envs import DirectRLEnvCfg
++from isaaclab.managers import SceneEntityCfg
++from isaaclab.scene import InteractiveSceneCfg
++from isaaclab.sensors import ContactSensorCfg
++from isaaclab.sim import SimulationCfg
++from isaaclab.terrains import TerrainImporterCfg
++from isaaclab.utils import configclass
+ 
+ from embodiment_scaling_laws.tasks.configs.environment.h1_cfg import H1EnvCfg
+ from embodiment_scaling_laws.assets.gen_humanoids import *
+diff --git a/exts/embodiment_scaling_laws/embodiment_scaling_laws/tasks/configs/environment/gen_quadrupeds_cfg.py b/exts/embodiment_scaling_laws/embodiment_scaling_laws/tasks/configs/environment/gen_quadrupeds_cfg.py
+index bc123b1..e2ff615 100644
+--- a/exts/embodiment_scaling_laws/embodiment_scaling_laws/tasks/configs/environment/gen_quadrupeds_cfg.py
++++ b/exts/embodiment_scaling_laws/embodiment_scaling_laws/tasks/configs/environment/gen_quadrupeds_cfg.py
+@@ -2,15 +2,15 @@ from __future__ import annotations
+ 
+ from dataclasses import MISSING
+ 
+-import omni.isaac.lab.sim as sim_utils
+-from omni.isaac.lab.assets import ArticulationCfg
+-from omni.isaac.lab.envs import DirectRLEnvCfg
+-from omni.isaac.lab.managers import SceneEntityCfg
+-from omni.isaac.lab.scene import InteractiveSceneCfg
+-from omni.isaac.lab.sensors import ContactSensorCfg
+-from omni.isaac.lab.sim import SimulationCfg
+-from omni.isaac.lab.terrains import TerrainImporterCfg
+-from omni.isaac.lab.utils import configclass
++import isaaclab.sim as sim_utils
++from isaaclab.assets import ArticulationCfg
++from isaaclab.envs import DirectRLEnvCfg
++from isaaclab.managers import SceneEntityCfg
++from isaaclab.scene import InteractiveSceneCfg
++from isaaclab.sensors import ContactSensorCfg
++from isaaclab.sim import SimulationCfg
++from isaaclab.terrains import TerrainImporterCfg
++from isaaclab.utils import configclass
+ 
+ from embodiment_scaling_laws.assets.gen_quadrupeds import *
+ from .go2_cfg import Go2EnvCfg
+diff --git a/exts/embodiment_scaling_laws/embodiment_scaling_laws/tasks/configs/environment/go2_cfg.py b/exts/embodiment_scaling_laws/embodiment_scaling_laws/tasks/configs/environment/go2_cfg.py
+index 17f9c81..078a791 100644
+--- a/exts/embodiment_scaling_laws/embodiment_scaling_laws/tasks/configs/environment/go2_cfg.py
++++ b/exts/embodiment_scaling_laws/embodiment_scaling_laws/tasks/configs/environment/go2_cfg.py
+@@ -5,15 +5,15 @@
+ 
+ from __future__ import annotations
+ 
+-import omni.isaac.lab.sim as sim_utils
+-from omni.isaac.lab.assets import ArticulationCfg
+-from omni.isaac.lab.envs import DirectRLEnvCfg
+-from omni.isaac.lab.managers import SceneEntityCfg
+-from omni.isaac.lab.scene import InteractiveSceneCfg
+-from omni.isaac.lab.sensors import ContactSensorCfg
+-from omni.isaac.lab.sim import SimulationCfg
+-from omni.isaac.lab.terrains import TerrainImporterCfg
+-from omni.isaac.lab.utils import configclass
++import isaaclab.sim as sim_utils
++from isaaclab.assets import ArticulationCfg
++from isaaclab.envs import DirectRLEnvCfg
++from isaaclab.managers import SceneEntityCfg
++from isaaclab.scene import InteractiveSceneCfg
++from isaaclab.sensors import ContactSensorCfg
++from isaaclab.sim import SimulationCfg
++from isaaclab.terrains import TerrainImporterCfg
++from isaaclab.utils import configclass
+ 
+ from embodiment_scaling_laws.assets.unitree import GO2_CFG
+ # from embodiment_scaling_laws.assets.gen_quadrupeds import GO2_CFG
+@@ -33,7 +33,7 @@ class Go2EnvCfg(DirectRLEnvCfg):
+     sim: SimulationCfg = SimulationCfg(
+         dt=dt,
+         render_interval=decimation,
+-        disable_contact_processing=True,
++        # disable_contact_processing=True,
+     )
+     terrain = TerrainImporterCfg(
+         prim_path="/World/ground",
+diff --git a/exts/embodiment_scaling_laws/embodiment_scaling_laws/tasks/configs/environment/h1_cfg.py b/exts/embodiment_scaling_laws/embodiment_scaling_laws/tasks/configs/environment/h1_cfg.py
+index e04469a..e0c4531 100644
+--- a/exts/embodiment_scaling_laws/embodiment_scaling_laws/tasks/configs/environment/h1_cfg.py
++++ b/exts/embodiment_scaling_laws/embodiment_scaling_laws/tasks/configs/environment/h1_cfg.py
+@@ -5,15 +5,15 @@
+ 
+ from __future__ import annotations
+ 
+-import omni.isaac.lab.sim as sim_utils
+-from omni.isaac.lab.assets import ArticulationCfg
+-from omni.isaac.lab.envs import DirectRLEnvCfg
+-from omni.isaac.lab.managers import SceneEntityCfg
+-from omni.isaac.lab.scene import InteractiveSceneCfg
+-from omni.isaac.lab.sensors import ContactSensorCfg
+-from omni.isaac.lab.sim import SimulationCfg
+-from omni.isaac.lab.terrains import TerrainImporterCfg
+-from omni.isaac.lab.utils import configclass
++import isaaclab.sim as sim_utils
++from isaaclab.assets import ArticulationCfg
++from isaaclab.envs import DirectRLEnvCfg
++from isaaclab.managers import SceneEntityCfg
++from isaaclab.scene import InteractiveSceneCfg
++from isaaclab.sensors import ContactSensorCfg
++from isaaclab.sim import SimulationCfg
++from isaaclab.terrains import TerrainImporterCfg
++from isaaclab.utils import configclass
+ 
+ from embodiment_scaling_laws.assets.unitree import H1_CFG
+ 
+@@ -33,7 +33,7 @@ class H1EnvCfg(DirectRLEnvCfg):
+     sim: SimulationCfg = SimulationCfg(
+         dt=dt,
+         render_interval=decimation,
+-        disable_contact_processing=True,
++        # disable_contact_processing=True,
+     )
+     terrain = TerrainImporterCfg(
+         prim_path="/World/ground",
+diff --git a/exts/embodiment_scaling_laws/embodiment_scaling_laws/tasks/environments/locomotion_env.py b/exts/embodiment_scaling_laws/embodiment_scaling_laws/tasks/environments/locomotion_env.py
+index 05304fb..c9950d2 100644
+--- a/exts/embodiment_scaling_laws/embodiment_scaling_laws/tasks/environments/locomotion_env.py
++++ b/exts/embodiment_scaling_laws/embodiment_scaling_laws/tasks/environments/locomotion_env.py
+@@ -2,12 +2,12 @@ from __future__ import annotations
+ import torch
+ import math
+ 
+-from omni.isaac.lab.assets import Articulation
+-from omni.isaac.lab.envs import DirectRLEnv, DirectRLEnvCfg
+-import omni.isaac.lab.envs.mdp as mdp
+-from omni.isaac.lab.sensors import ContactSensor
+-import omni.isaac.lab.sim as sim_utils
+-import omni.isaac.lab.utils.math as math_utils
++from isaaclab.assets import Articulation
++from isaaclab.envs import DirectRLEnv, DirectRLEnvCfg
++import isaaclab.envs.mdp as mdp
++from isaaclab.sensors import ContactSensor
++import isaaclab.sim as sim_utils
++import isaaclab.utils.math as math_utils
+ import os
+ import json
+ 
+@@ -354,7 +354,14 @@ class LocomotionEnv(DirectRLEnv):
+             self.robot.write_joint_state_to_sim(self.robot.data.default_joint_pos[env_ids], 0.0 * self.joint_max_velocity[env_ids], None, env_ids)
+             feet_indices, _ = self.robot.find_bodies(self.feet_contact_cfg.body_names, True)
+             global_feet_pos = self.robot.data.body_pos_w[:, feet_indices]
+-            local_feet_pos = math_utils.quat_rotate_inverse(self.robot.data.root_quat_w[:, None, :], global_feet_pos - self.robot.data.root_state_w[:, None, :3])
++            # local_feet_pos = math_utils.quat_rotate_inverse(self.robot.data.root_quat_w[:, None, :], global_feet_pos - self.robot.data.root_state_w[:, None, :3])
++            # 1. 获取脚的位置向量 (N, 4, 3)
++            feet_vec = global_feet_pos - self.robot.data.root_state_w[:, None, :3]
++            # 2. 显式扩展四元数维度以匹配脚的数量 (N, 1, 4) -> (N, 4, 4)
++            #    expand(-1, 4, -1) 表示在第二个维度重复4次（对应4只脚）
++            root_quat_expanded = self.robot.data.root_quat_w[:, None, :].expand(-1, 4, -1)
++            # 3. 计算旋转
++            local_feet_pos = math_utils.quat_rotate_inverse(root_quat_expanded, feet_vec)
+             feet_y_distance = torch.abs(local_feet_pos[:, self.feet_symmetry_pairs[:, 0], 1] - local_feet_pos[:, self.feet_symmetry_pairs[:, 1], 1]).mean(dim=1)
+             self.feet_y_distance_target = feet_y_distance.mean().item()
+             self.calculated_feet_y_distance_target = True
+@@ -558,9 +565,9 @@ class LocomotionEnv(DirectRLEnv):
+         restitution_max = curriculum_coeff_1 * self.restitution_max + (1.0 - curriculum_coeff_1) * middle_restitution
+         self.randomize_rigid_body_material(self, env_randomization_indices, (static_friction_min, static_friction_max), (dynamic_friction_min, dynamic_friction_max), (restitution_min, restitution_max), 64, self.all_bodies_cfg)
+         
+-        mdp.randomize_rigid_body_mass(self, env_randomization_indices, self.trunk_cfg, (self.added_trunk_mass_min * curriculum_coeff_1_cpu, self.added_trunk_mass_max * curriculum_coeff_1_cpu), "add")
++        # mdp.randomize_rigid_body_mass(self, env_randomization_indices, self.trunk_cfg, (self.added_trunk_mass_min * curriculum_coeff_1_cpu, self.added_trunk_mass_max * curriculum_coeff_1_cpu), "add")
+         
+-        mdp.randomize_physics_scene_gravity(self, env_randomization_indices, (self.added_gravity_min * curriculum_coeff_mean_cpu, self.added_gravity_max * curriculum_coeff_mean_cpu), "add")
++        # mdp.randomize_physics_scene_gravity(self, env_randomization_indices, (self.added_gravity_min * curriculum_coeff_mean_cpu, self.added_gravity_max * curriculum_coeff_mean_cpu), "add")
+         
+         middle_joint_friction = (self.joint_friction_min + self.joint_friction_max) / 2.0
+         joint_friction_min = curriculum_coeff_1 * self.joint_friction_min + (1.0 - curriculum_coeff_1) * middle_joint_friction
+@@ -569,7 +576,7 @@ class LocomotionEnv(DirectRLEnv):
+         middle_joint_armature = (self.joint_armature_min + self.joint_armature_max) / 2.0
+         joint_armature_min = curriculum_coeff_1 * self.joint_armature_min + (1.0 - curriculum_coeff_1) * middle_joint_armature
+         joint_armature_max = curriculum_coeff_1 * self.joint_armature_max + (1.0 - curriculum_coeff_1) * middle_joint_armature
+-        mdp.randomize_joint_parameters(self, env_randomization_indices, self.all_joints_cfg, (joint_friction_min, joint_friction_max), (joint_armature_min, joint_armature_max), None, None, "abs")
++        # mdp.randomize_joint_parameters(self, env_randomization_indices, self.all_joints_cfg, (joint_friction_min, joint_friction_max), (joint_armature_min, joint_armature_max), None, None, "abs")
+ 
+         # Perturbations
+         if not all_envs:
+@@ -622,7 +629,13 @@ class LocomotionEnv(DirectRLEnv):
+ 
+         feet_indices, _ = self.robot.find_bodies(self.feet_contact_cfg.body_names, True)
+         global_feet_pos = self.robot.data.body_pos_w[:, feet_indices]
+-        local_feet_pos = math_utils.quat_rotate_inverse(self.robot.data.root_quat_w[:, None, :], global_feet_pos - self.robot.data.root_state_w[:, None, :3])
++        # 1. 计算脚相对于 Root 的位置向量
++        feet_vec = global_feet_pos - self.robot.data.root_state_w[:, None, :3]
++        # 2. 显式扩展四元数维度 (N, 1, 4) -> (N, 4, 4) 以匹配脚的数量
++        root_quat_expanded = self.robot.data.root_quat_w[:, None, :].expand(-1, 4, -1)
++        # 3. 计算旋转
++        local_feet_pos = math_utils.quat_rotate_inverse(root_quat_expanded, feet_vec)
++        # local_feet_pos = math_utils.quat_rotate_inverse(self.robot.data.root_quat_w[:, None, :], global_feet_pos - self.robot.data.root_state_w[:, None, :3])
+ 
+         undesired_contacts = self.get_undesired_contacts(self.undesired_contact_cfg, threshold=1.0)
+ 
+diff --git a/pyproject.toml b/pyproject.toml
+index 4ef6a2d..9a413b8 100644
+--- a/pyproject.toml
++++ b/pyproject.toml
+@@ -81,4 +81,4 @@ reportMissingModuleSource = "none" # -> most common: prettytable in mdp managers
+ 
+ reportGeneralTypeIssues = "none"       # -> raises 218 errors (usage of literal MISSING in dataclasses)
+ reportOptionalMemberAccess = "warning" # -> raises 8 errors
+-reportPrivateUsage = "warning"
++reportPrivateUsage = "warning"
+\ No newline at end of file
+diff --git a/rsl_rl/rsl_rl/env/isaac_lab_vec_env.py b/rsl_rl/rsl_rl/env/isaac_lab_vec_env.py
+index 8aeaa85..255410c 100644
+--- a/rsl_rl/rsl_rl/env/isaac_lab_vec_env.py
++++ b/rsl_rl/rsl_rl/env/isaac_lab_vec_env.py
+@@ -9,7 +9,7 @@ import torch
+ 
+ from rsl_rl.env import VecEnv
+ 
+-from omni.isaac.lab.envs import DirectRLEnv, ManagerBasedRLEnv
++from isaaclab.envs import DirectRLEnv, ManagerBasedRLEnv
+ 
+ 
+ class IsaacLabVecEnvWrapper(VecEnv):
+diff --git a/scripts/cli_args.py b/scripts/cli_args.py
+index 4b11bab..24353d3 100644
+--- a/scripts/cli_args.py
++++ b/scripts/cli_args.py
+@@ -44,7 +44,7 @@ def parse_rsl_rl_cfg(task_name: str, args_cli: argparse.Namespace):
+     Returns:
+         The parsed configuration for RSL-RL agent based on inputs.
+     """
+-    from omni.isaac.lab_tasks.utils.parse_cfg import load_cfg_from_registry
++    from isaaclab_tasks.utils.parse_cfg import load_cfg_from_registry
+ 
+     # load the default configuration
+     rslrl_cfg = load_cfg_from_registry(task_name, "rsl_rl_cfg_entry_point")
+diff --git a/scripts/expert/train.py b/scripts/expert/train.py
+index de14762..f8d4c6b 100644
+--- a/scripts/expert/train.py
++++ b/scripts/expert/train.py
+@@ -9,7 +9,8 @@
+ 
+ import argparse
+ 
+-from omni.isaac.lab.app import AppLauncher
++# from omni.isaac.lab.app import AppLauncher
++from isaaclab.app import AppLauncher
+ 
+ import os, sys
+ sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+@@ -45,6 +46,8 @@ simulation_app = app_launcher.app
+ import gymnasium as gym
+ import os
+ import torch
++import pickle
++import yaml
+ from datetime import datetime
+ 
+ from rsl_rl.runners import OnPolicyRunner
+@@ -53,10 +56,20 @@ from rsl_rl.env.isaac_lab_vec_env import IsaacLabVecEnvWrapper
+ # Import extensions to set up environment tasks
+ import embodiment_scaling_laws.tasks  # noqa: F401
+ 
+-from omni.isaac.lab.envs import ManagerBasedRLEnvCfg
+-from omni.isaac.lab.utils.dict import print_dict
+-from omni.isaac.lab.utils.io import dump_pickle, dump_yaml
+-from omni.isaac.lab_tasks.utils import get_checkpoint_path, parse_env_cfg
++from isaaclab.envs import ManagerBasedRLEnvCfg
++from isaaclab.utils.dict import print_dict
++# from omni.isaac.lab.utils.io import dump_pickle, dump_yaml
++def dump_pickle(filename, data):  
++    os.makedirs(os.path.dirname(filename), exist_ok=True)
++    with open(filename, "wb") as f:
++        pickle.dump(data, f)
++
++def dump_yaml(filename, data):    
++    os.makedirs(os.path.dirname(filename), exist_ok=True)
++    with open(filename, "w") as f:
++        yaml.dump(data, f, sort_keys=False)
++# from omni.isaac.lab_tasks.utils import get_checkpoint_path, parse_env_cfg
++from isaaclab_tasks.utils import get_checkpoint_path, parse_env_cfg
+ 
+ torch.backends.cuda.matmul.allow_tf32 = True
+ torch.backends.cudnn.allow_tf32 = True

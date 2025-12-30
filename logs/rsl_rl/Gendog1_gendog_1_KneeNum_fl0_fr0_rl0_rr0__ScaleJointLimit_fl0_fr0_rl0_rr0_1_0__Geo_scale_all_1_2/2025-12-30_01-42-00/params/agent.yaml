@@ -1,0 +1,42 @@
+!!python/object:embodiment_scaling_laws.tasks.configs.algorithm.gen_quadruped_1k_ppo_cfg.Gendog1PPORunnerCfg
+seed: 42
+device: cuda:0
+num_steps_per_env: 24
+max_iterations: 17500
+empirical_normalization: false
+policy: !!python/object:embodiment_scaling_laws.tasks.configs.algorithm.default_ppo_cfg.PolicyCfg
+  class_name: ActorCritic
+  init_noise_std: 1.0
+  actor_hidden_dims:
+  - 512
+  - 256
+  - 128
+  critic_hidden_dims:
+  - 512
+  - 256
+  - 128
+  activation: elu
+algorithm: !!python/object:embodiment_scaling_laws.tasks.configs.algorithm.default_ppo_cfg.AlgorithmCfg
+  class_name: PPO
+  value_loss_coef: 1.0
+  use_clipped_value_loss: true
+  clip_param: 0.2
+  entropy_coef: 0.002
+  num_learning_epochs: 5
+  num_mini_batches: 4
+  learning_rate: 0.001
+  schedule: adaptive
+  gamma: 0.99
+  lam: 0.95
+  desired_kl: 0.01
+  max_grad_norm: 1.0
+save_interval: 1000
+experiment_name: Gendog1_gendog_1_KneeNum_fl0_fr0_rl0_rr0__ScaleJointLimit_fl0_fr0_rl0_rr0_1_0__Geo_scale_all_1_2
+run_name: ''
+logger: tensorboard
+neptune_project: isaaclab
+wandb_project: isaaclab
+resume: false
+load_run: .*
+load_checkpoint: model_.*.pt
+task: Gendog1

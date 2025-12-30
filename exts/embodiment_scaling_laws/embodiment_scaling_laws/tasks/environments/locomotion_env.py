@@ -2,12 +2,12 @@ from __future__ import annotations
 import torch
 import math
 
-from omni.isaac.lab.assets import Articulation
-from omni.isaac.lab.envs import DirectRLEnv, DirectRLEnvCfg
-import omni.isaac.lab.envs.mdp as mdp
-from omni.isaac.lab.sensors import ContactSensor
-import omni.isaac.lab.sim as sim_utils
-import omni.isaac.lab.utils.math as math_utils
+from isaaclab.assets import Articulation
+from isaaclab.envs import DirectRLEnv, DirectRLEnvCfg
+import isaaclab.envs.mdp as mdp
+from isaaclab.sensors import ContactSensor
+import isaaclab.sim as sim_utils
+import isaaclab.utils.math as math_utils
 import os
 import json
 
@@ -354,7 +354,14 @@ class LocomotionEnv(DirectRLEnv):
             self.robot.write_joint_state_to_sim(self.robot.data.default_joint_pos[env_ids], 0.0 * self.joint_max_velocity[env_ids], None, env_ids)
             feet_indices, _ = self.robot.find_bodies(self.feet_contact_cfg.body_names, True)
             global_feet_pos = self.robot.data.body_pos_w[:, feet_indices]
-            local_feet_pos = math_utils.quat_rotate_inverse(self.robot.data.root_quat_w[:, None, :], global_feet_pos - self.robot.data.root_state_w[:, None, :3])
+            # local_feet_pos = math_utils.quat_rotate_inverse(self.robot.data.root_quat_w[:, None, :], global_feet_pos - self.robot.data.root_state_w[:, None, :3])
+            # 1. 获取脚的位置向量 (N, 4, 3)
+            feet_vec = global_feet_pos - self.robot.data.root_state_w[:, None, :3]
+            # 2. 显式扩展四元数维度以匹配脚的数量 (N, 1, 4) -> (N, 4, 4)
+            #    expand(-1, 4, -1) 表示在第二个维度重复4次（对应4只脚）
+            root_quat_expanded = self.robot.data.root_quat_w[:, None, :].expand(-1, 4, -1)
+            # 3. 计算旋转
+            local_feet_pos = math_utils.quat_rotate_inverse(root_quat_expanded, feet_vec)
             feet_y_distance = torch.abs(local_feet_pos[:, self.feet_symmetry_pairs[:, 0], 1] - local_feet_pos[:, self.feet_symmetry_pairs[:, 1], 1]).mean(dim=1)
             self.feet_y_distance_target = feet_y_distance.mean().item()
             self.calculated_feet_y_distance_target = True
@@ -558,9 +565,9 @@ class LocomotionEnv(DirectRLEnv):
         restitution_max = curriculum_coeff_1 * self.restitution_max + (1.0 - curriculum_coeff_1) * middle_restitution
         self.randomize_rigid_body_material(self, env_randomization_indices, (static_friction_min, static_friction_max), (dynamic_friction_min, dynamic_friction_max), (restitution_min, restitution_max), 64, self.all_bodies_cfg)
         
-        mdp.randomize_rigid_body_mass(self, env_randomization_indices, self.trunk_cfg, (self.added_trunk_mass_min * curriculum_coeff_1_cpu, self.added_trunk_mass_max * curriculum_coeff_1_cpu), "add")
+        # mdp.randomize_rigid_body_mass(self, env_randomization_indices, self.trunk_cfg, (self.added_trunk_mass_min * curriculum_coeff_1_cpu, self.added_trunk_mass_max * curriculum_coeff_1_cpu), "add")
         
-        mdp.randomize_physics_scene_gravity(self, env_randomization_indices, (self.added_gravity_min * curriculum_coeff_mean_cpu, self.added_gravity_max * curriculum_coeff_mean_cpu), "add")
+        # mdp.randomize_physics_scene_gravity(self, env_randomization_indices, (self.added_gravity_min * curriculum_coeff_mean_cpu, self.added_gravity_max * curriculum_coeff_mean_cpu), "add")
         
         middle_joint_friction = (self.joint_friction_min + self.joint_friction_max) / 2.0
         joint_friction_min = curriculum_coeff_1 * self.joint_friction_min + (1.0 - curriculum_coeff_1) * middle_joint_friction
@@ -569,7 +576,7 @@ class LocomotionEnv(DirectRLEnv):
         middle_joint_armature = (self.joint_armature_min + self.joint_armature_max) / 2.0
         joint_armature_min = curriculum_coeff_1 * self.joint_armature_min + (1.0 - curriculum_coeff_1) * middle_joint_armature
         joint_armature_max = curriculum_coeff_1 * self.joint_armature_max + (1.0 - curriculum_coeff_1) * middle_joint_armature
-        mdp.randomize_joint_parameters(self, env_randomization_indices, self.all_joints_cfg, (joint_friction_min, joint_friction_max), (joint_armature_min, joint_armature_max), None, None, "abs")
+        # mdp.randomize_joint_parameters(self, env_randomization_indices, self.all_joints_cfg, (joint_friction_min, joint_friction_max), (joint_armature_min, joint_armature_max), None, None, "abs")
 
         # Perturbations
         if not all_envs:
@@ -622,7 +629,13 @@ class LocomotionEnv(DirectRLEnv):
 
         feet_indices, _ = self.robot.find_bodies(self.feet_contact_cfg.body_names, True)
         global_feet_pos = self.robot.data.body_pos_w[:, feet_indices]
-        local_feet_pos = math_utils.quat_rotate_inverse(self.robot.data.root_quat_w[:, None, :], global_feet_pos - self.robot.data.root_state_w[:, None, :3])
+        # 1. 计算脚相对于 Root 的位置向量
+        feet_vec = global_feet_pos - self.robot.data.root_state_w[:, None, :3]
+        # 2. 显式扩展四元数维度 (N, 1, 4) -> (N, 4, 4) 以匹配脚的数量
+        root_quat_expanded = self.robot.data.root_quat_w[:, None, :].expand(-1, 4, -1)
+        # 3. 计算旋转
+        local_feet_pos = math_utils.quat_rotate_inverse(root_quat_expanded, feet_vec)
+        # local_feet_pos = math_utils.quat_rotate_inverse(self.robot.data.root_quat_w[:, None, :], global_feet_pos - self.robot.data.root_state_w[:, None, :3])
 
         undesired_contacts = self.get_undesired_contacts(self.undesired_contact_cfg, threshold=1.0)
 

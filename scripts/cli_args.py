@@ -44,7 +44,7 @@ def parse_rsl_rl_cfg(task_name: str, args_cli: argparse.Namespace):
     Returns:
         The parsed configuration for RSL-RL agent based on inputs.
     """
-    from omni.isaac.lab_tasks.utils.parse_cfg import load_cfg_from_registry
+    from isaaclab_tasks.utils.parse_cfg import load_cfg_from_registry
 
     # load the default configuration
     rslrl_cfg = load_cfg_from_registry(task_name, "rsl_rl_cfg_entry_point")

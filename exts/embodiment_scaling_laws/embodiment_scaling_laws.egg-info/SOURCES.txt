@@ -1,0 +1,9 @@
+pyproject.toml
+setup.py
+embodiment_scaling_laws/__init__.py
+embodiment_scaling_laws.egg-info/PKG-INFO
+embodiment_scaling_laws.egg-info/SOURCES.txt
+embodiment_scaling_laws.egg-info/dependency_links.txt
+embodiment_scaling_laws.egg-info/not-zip-safe
+embodiment_scaling_laws.egg-info/requires.txt
+embodiment_scaling_laws.egg-info/top_level.txt

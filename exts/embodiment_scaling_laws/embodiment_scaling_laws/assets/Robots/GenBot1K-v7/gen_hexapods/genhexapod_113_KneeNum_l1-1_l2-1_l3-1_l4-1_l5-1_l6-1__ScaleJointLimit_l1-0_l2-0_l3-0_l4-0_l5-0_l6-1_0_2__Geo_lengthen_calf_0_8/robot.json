@@ -1,0 +1,39 @@
+{
+    "body_size": {
+        "length": 0.8,
+        "width": 0.5,
+        "height": 0.1
+    },
+    "hip_link": {
+        "radius": 0.05
+    },
+    "foot_link": {
+        "radius": 0.03
+    },
+    "thigh_link": {
+        "length": 0.22,
+        "radius": 0.03
+    },
+    "calf_link": {
+        "length": 0.17600000000000002,
+        "radius": 0.025
+    },
+    "self_collision_joint_offset": 0.3,
+    "knee_nums": {
+        "leg_1": 1,
+        "leg_2": 1,
+        "leg_3": 1,
+        "leg_4": 1,
+        "leg_5": 1,
+        "leg_6": 1
+    },
+    "apply_knee_joint_limit_scale_nums": {
+        "leg_1": 0,
+        "leg_2": 0,
+        "leg_3": 0,
+        "leg_4": 0,
+        "leg_5": 0,
+        "leg_6": 1
+    },
+    "apply_knee_joint_limit_scale_factor": 0.2
+}

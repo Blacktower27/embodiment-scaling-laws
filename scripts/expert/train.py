@@ -9,7 +9,8 @@
 
 import argparse
 
-from omni.isaac.lab.app import AppLauncher
+# from omni.isaac.lab.app import AppLauncher
+from isaaclab.app import AppLauncher
 
 import os, sys
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -45,6 +46,8 @@ simulation_app = app_launcher.app
 import gymnasium as gym
 import os
 import torch
+import pickle
+import yaml
 from datetime import datetime
 
 from rsl_rl.runners import OnPolicyRunner
@@ -53,10 +56,20 @@ from rsl_rl.env.isaac_lab_vec_env import IsaacLabVecEnvWrapper
 # Import extensions to set up environment tasks
 import embodiment_scaling_laws.tasks  # noqa: F401
 
-from omni.isaac.lab.envs import ManagerBasedRLEnvCfg
-from omni.isaac.lab.utils.dict import print_dict
-from omni.isaac.lab.utils.io import dump_pickle, dump_yaml
-from omni.isaac.lab_tasks.utils import get_checkpoint_path, parse_env_cfg
+from isaaclab.envs import ManagerBasedRLEnvCfg
+from isaaclab.utils.dict import print_dict
+# from omni.isaac.lab.utils.io import dump_pickle, dump_yaml
+def dump_pickle(filename, data):  
+    os.makedirs(os.path.dirname(filename), exist_ok=True)
+    with open(filename, "wb") as f:
+        pickle.dump(data, f)
+
+def dump_yaml(filename, data):    
+    os.makedirs(os.path.dirname(filename), exist_ok=True)
+    with open(filename, "w") as f:
+        yaml.dump(data, f, sort_keys=False)
+# from omni.isaac.lab_tasks.utils import get_checkpoint_path, parse_env_cfg
+from isaaclab_tasks.utils import get_checkpoint_path, parse_env_cfg
 
 torch.backends.cuda.matmul.allow_tf32 = True
 torch.backends.cudnn.allow_tf32 = True

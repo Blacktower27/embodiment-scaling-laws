@@ -1,0 +1,602 @@
+{
+    "joint_info": {
+        "front_left_hip_pitch_joint": {
+            "axis": [
+                1.0,
+                2.1027009022844823e-09,
+                1.0610131662147637e-09
+            ],
+            "position": [
+                0.1504800021648407,
+                0.0374000109732151,
+                0.4185871481895447
+            ],
+            "init_qpos": 0.1,
+            "torque_limit": 23.7,
+            "velocity_limit": 30.1,
+            "damping": "no_such_info",
+            "armature": "no_such_info",
+            "stiffness": "no_such_info",
+            "friction": "no_such_info",
+            "range": [
+                -1.0499999523162842,
+                1.0499999523162842
+            ],
+            "gains_and_action_scaling_factor": "no_such_info",
+            "mass": "no_such_info"
+        },
+        "front_left_thigh_joint": {
+            "axis": [
+                -2.384185791015625e-07,
+                0.9950041770935059,
+                0.0998334288597107
+            ],
+            "position": [
+                0.15048003196716309,
+                0.13242292404174805,
+                0.4281212091445923
+            ],
+            "init_qpos": 0.8,
+            "torque_limit": 23.7,
+            "velocity_limit": 30.1,
+            "damping": "no_such_info",
+            "armature": "no_such_info",
+            "stiffness": "no_such_info",
+            "friction": "no_such_info",
+            "range": [
+                -1.5700000524520874,
+                3.490000009536743
+            ],
+            "gains_and_action_scaling_factor": "no_such_info",
+            "mass": "no_such_info"
+        },
+        "front_left_knee_joint": {
+            "axis": [
+                -1.1920928955078125e-07,
+                0.9950041770935059,
+                0.09983327984809875
+            ],
+            "position": [
+                0.028242571279406548,
+                0.1442750096321106,
+                0.30999550223350525
+            ],
+            "init_qpos": -1.5,
+            "torque_limit": 45.43,
+            "velocity_limit": 15.7,
+            "damping": "no_such_info",
+            "armature": "no_such_info",
+            "stiffness": "no_such_info",
+            "friction": "no_such_info",
+            "range": [
+                -2.7200000286102295,
+                -0.8399999737739563
+            ],
+            "gains_and_action_scaling_factor": "no_such_info",
+            "mass": "no_such_info"
+        },
+        "front_left_knee_1_joint": {
+            "axis": [
+                -1.1920928955078125e-07,
+                0.9950041770935059,
+                0.09983327984809875
+            ],
+            "position": [
+                0.09008750319480896,
+                0.1516052782535553,
+                0.23693746328353882
+            ],
+            "init_qpos": 0.0,
+            "torque_limit": 45.43,
+            "velocity_limit": 15.7,
+            "damping": "no_such_info",
+            "armature": "no_such_info",
+            "stiffness": "no_such_info",
+            "friction": "no_such_info",
+            "range": [
+                -1.5700000524520874,
+                1.5700000524520874
+            ],
+            "gains_and_action_scaling_factor": "no_such_info",
+            "mass": "no_such_info"
+        },
+        "front_left_knee_2_joint": {
+            "axis": [
+                -1.1920928955078125e-07,
+                0.9950041770935059,
+                0.09983327984809875
+            ],
+            "position": [
+                0.15193240344524384,
+                0.1589355170726776,
+                0.1638794243335724
+            ],
+            "init_qpos": 0.0,
+            "torque_limit": 45.43,
+            "velocity_limit": 15.7,
+            "damping": "no_such_info",
+            "armature": "no_such_info",
+            "stiffness": "no_such_info",
+            "friction": "no_such_info",
+            "range": [
+                -1.5700000524520874,
+                1.5700000524520874
+            ],
+            "gains_and_action_scaling_factor": "no_such_info",
+            "mass": "no_such_info"
+        },
+        "front_right_hip_pitch_joint": {
+            "axis": [
+                1.0,
+                -1.8323905726091994e-09,
+                6.395229346090048e-10
+            ],
+            "position": [
+                0.1504800021648407,
+                -0.037400003522634506,
+                0.4185871481895447
+            ],
+            "init_qpos": -0.1,
+            "torque_limit": 23.7,
+            "velocity_limit": 30.1,
+            "damping": "no_such_info",
+            "armature": "no_such_info",
+            "stiffness": "no_such_info",
+            "friction": "no_such_info",
+            "range": [
+                -1.0499999523162842,
+                1.0499999523162842
+            ],
+            "gains_and_action_scaling_factor": "no_such_info",
+            "mass": "no_such_info"
+        },
+        "front_right_thigh_joint": {
+            "axis": [
+                0.0,
+                0.9950041770935059,
+                -0.09983336925506592
+            ],
+            "position": [
+                0.15048003196716309,
+                -0.13242292404174805,
+                0.4281212091445923
+            ],
+            "init_qpos": 0.8,
+            "torque_limit": 23.7,
+            "velocity_limit": 30.1,
+            "damping": "no_such_info",
+            "armature": "no_such_info",
+            "stiffness": "no_such_info",
+            "friction": "no_such_info",
+            "range": [
+                -1.5700000524520874,
+                3.490000009536743
+            ],
+            "gains_and_action_scaling_factor": "no_such_info",
+            "mass": "no_such_info"
+        },
+        "front_right_knee_joint": {
+            "axis": [
+                0.0,
+                0.9950041770935059,
+                -0.09983327984809875
+            ],
+            "position": [
+                0.02824246883392334,
+                -0.1442750245332718,
+                0.3099954128265381
+            ],
+            "init_qpos": -1.5,
+            "torque_limit": 45.43,
+            "velocity_limit": 15.7,
+            "damping": "no_such_info",
+            "armature": "no_such_info",
+            "stiffness": "no_such_info",
+            "friction": "no_such_info",
+            "range": [
+                -2.7200000286102295,
+                -0.8399999737739563
+            ],
+            "gains_and_action_scaling_factor": "no_such_info",
+            "mass": "no_such_info"
+        },
+        "front_right_knee_1_joint": {
+            "axis": [
+                0.0,
+                0.9950042963027954,
+                -0.0998331606388092
+            ],
+            "position": [
+                0.0900873914361,
+                -0.1516052484512329,
+                0.23693737387657166
+            ],
+            "init_qpos": 0.0,
+            "torque_limit": 45.43,
+            "velocity_limit": 15.7,
+            "damping": "no_such_info",
+            "armature": "no_such_info",
+            "stiffness": "no_such_info",
+            "friction": "no_such_info",
+            "range": [
+                -1.5700000524520874,
+                1.5700000524520874
+            ],
+            "gains_and_action_scaling_factor": "no_such_info",
+            "mass": "no_such_info"
+        },
+        "front_right_knee_2_joint": {
+            "axis": [
+                0.0,
+                0.9950041770935059,
+                -0.09983327984809875
+            ],
+            "position": [
+                0.15193229913711548,
+                -0.1589355170726776,
+                0.16387934982776642
+            ],
+            "init_qpos": 0.0,
+            "torque_limit": 45.43,
+            "velocity_limit": 15.7,
+            "damping": "no_such_info",
+            "armature": "no_such_info",
+            "stiffness": "no_such_info",
+            "friction": "no_such_info",
+            "range": [
+                -1.5700000524520874,
+                1.5700000524520874
+            ],
+            "gains_and_action_scaling_factor": "no_such_info",
+            "mass": "no_such_info"
+        },
+        "rear_left_hip_pitch_joint": {
+            "axis": [
+                1.0,
+                4.6546683174497616e-11,
+                -9.301586723076127e-10
+            ],
+            "position": [
+                -0.15048004686832428,
+                0.0374000184237957,
+                0.4185871481895447
+            ],
+            "init_qpos": 0.1,
+            "torque_limit": 23.7,
+            "velocity_limit": 30.1,
+            "damping": "no_such_info",
+            "armature": "no_such_info",
+            "stiffness": "no_such_info",
+            "friction": "no_such_info",
+            "range": [
+                -1.0499999523162842,
+                1.0499999523162842
+            ],
+            "gains_and_action_scaling_factor": "no_such_info",
+            "mass": "no_such_info"
+        },
+        "rear_left_thigh_joint": {
+            "axis": [
+                -2.384185791015625e-07,
+                0.9950042366981506,
+                0.09983347356319427
+            ],
+            "position": [
+                -0.15048004686832428,
+                0.13242293894290924,
+                0.4281212389469147
+            ],
+            "init_qpos": 1.0,
+            "torque_limit": 23.7,
+            "velocity_limit": 30.1,
+            "damping": "no_such_info",
+            "armature": "no_such_info",
+            "stiffness": "no_such_info",
+            "friction": "no_such_info",
+            "range": [
+                -0.5199999809265137,
+                4.53000020980835
+            ],
+            "gains_and_action_scaling_factor": "no_such_info",
+            "mass": "no_such_info"
+        },
+        "rear_left_knee_joint": {
+            "axis": [
+                -1.1920928955078125e-07,
+                0.9950041770935059,
+                0.09983354806900024
+            ],
+            "position": [
+                -0.29386669397354126,
+                0.14161434769630432,
+                0.3365137279033661
+            ],
+            "init_qpos": -1.5,
+            "torque_limit": 45.43,
+            "velocity_limit": 15.7,
+            "damping": "no_such_info",
+            "armature": "no_such_info",
+            "stiffness": "no_such_info",
+            "friction": "no_such_info",
+            "range": [
+                -2.7200000286102295,
+                -0.8399999737739563
+            ],
+            "gains_and_action_scaling_factor": "no_such_info",
+            "mass": "no_such_info"
+        },
+        "rear_left_knee_1_joint": {
+            "axis": [
+                -1.1920928955078125e-07,
+                0.9950042963027954,
+                0.09983348846435547
+            ],
+            "position": [
+                -0.24784186482429504,
+                0.1500251591205597,
+                0.25268667936325073
+            ],
+            "init_qpos": 0.0,
+            "torque_limit": 45.43,
+            "velocity_limit": 15.7,
+            "damping": "no_such_info",
+            "armature": "no_such_info",
+            "stiffness": "no_such_info",
+            "friction": "no_such_info",
+            "range": [
+                -1.5700000524520874,
+                1.5700000524520874
+            ],
+            "gains_and_action_scaling_factor": "no_such_info",
+            "mass": "no_such_info"
+        },
+        "rear_left_knee_2_joint": {
+            "axis": [
+                -1.1920928955078125e-07,
+                0.9950041770935059,
+                0.09983354806900024
+            ],
+            "position": [
+                -0.20181702077388763,
+                0.1584359109401703,
+                0.16885963082313538
+            ],
+            "init_qpos": 0.0,
+            "torque_limit": 45.43,
+            "velocity_limit": 15.7,
+            "damping": "no_such_info",
+            "armature": "no_such_info",
+            "stiffness": "no_such_info",
+            "friction": "no_such_info",
+            "range": [
+                -1.5700000524520874,
+                1.5700000524520874
+            ],
+            "gains_and_action_scaling_factor": "no_such_info",
+            "mass": "no_such_info"
+        },
+        "rear_right_hip_pitch_joint": {
+            "axis": [
+                1.0,
+                -1.06979869407553e-09,
+                -2.743929305992765e-09
+            ],
+            "position": [
+                -0.1504800170660019,
+                -0.03739999607205391,
+                0.4185871481895447
+            ],
+            "init_qpos": -0.1,
+            "torque_limit": 23.7,
+            "velocity_limit": 30.1,
+            "damping": "no_such_info",
+            "armature": "no_such_info",
+            "stiffness": "no_such_info",
+            "friction": "no_such_info",
+            "range": [
+                -1.0499999523162842,
+                1.0499999523162842
+            ],
+            "gains_and_action_scaling_factor": "no_such_info",
+            "mass": "no_such_info"
+        },
+        "rear_right_thigh_joint": {
+            "axis": [
+                1.7881393432617188e-07,
+                0.9950041770935059,
+                -0.09983327984809875
+            ],
+            "position": [
+                -0.1504800170660019,
+                -0.13242290914058685,
+                0.4281212091445923
+            ],
+            "init_qpos": 1.0,
+            "torque_limit": 23.7,
+            "velocity_limit": 30.1,
+            "damping": "no_such_info",
+            "armature": "no_such_info",
+            "stiffness": "no_such_info",
+            "friction": "no_such_info",
+            "range": [
+                -0.5199999809265137,
+                4.53000020980835
+            ],
+            "gains_and_action_scaling_factor": "no_such_info",
+            "mass": "no_such_info"
+        },
+        "rear_right_knee_joint": {
+            "axis": [
+                0.0,
+                0.9950041770935059,
+                -0.09983333945274353
+            ],
+            "position": [
+                -0.29386672377586365,
+                -0.14161430299282074,
+                0.33651360869407654
+            ],
+            "init_qpos": -1.5,
+            "torque_limit": 45.43,
+            "velocity_limit": 15.7,
+            "damping": "no_such_info",
+            "armature": "no_such_info",
+            "stiffness": "no_such_info",
+            "friction": "no_such_info",
+            "range": [
+                -2.7200000286102295,
+                -0.8399999737739563
+            ],
+            "gains_and_action_scaling_factor": "no_such_info",
+            "mass": "no_such_info"
+        },
+        "rear_right_knee_1_joint": {
+            "axis": [
+                0.0,
+                0.9950041770935059,
+                -0.09983333945274353
+            ],
+            "position": [
+                -0.24784186482429504,
+                -0.15002505481243134,
+                0.2526865601539612
+            ],
+            "init_qpos": 0.0,
+            "torque_limit": 45.43,
+            "velocity_limit": 15.7,
+            "damping": "no_such_info",
+            "armature": "no_such_info",
+            "stiffness": "no_such_info",
+            "friction": "no_such_info",
+            "range": [
+                -1.5700000524520874,
+                1.5700000524520874
+            ],
+            "gains_and_action_scaling_factor": "no_such_info",
+            "mass": "no_such_info"
+        },
+        "rear_right_knee_2_joint": {
+            "axis": [
+                0.0,
+                0.9950041770935059,
+                -0.09983333945274353
+            ],
+            "position": [
+                -0.20181699097156525,
+                -0.15843580663204193,
+                0.16885952651500702
+            ],
+            "init_qpos": 0.0,
+            "torque_limit": 45.43,
+            "velocity_limit": 15.7,
+            "damping": "no_such_info",
+            "armature": "no_such_info",
+            "stiffness": "no_such_info",
+            "friction": "no_such_info",
+            "range": [
+                -1.5700000524520874,
+                1.5700000524520874
+            ],
+            "gains_and_action_scaling_factor": "no_such_info",
+            "mass": "no_such_info"
+        }
+    },
+    "bbox": [
+        [
+            -0.30701408347595655,
+            -0.19090506961393316,
+            0.002282320272403382
+        ],
+        [
+            0.27398970575470116,
+            0.1909052037243839,
+            0.46689006346518036
+        ]
+    ],
+    "foot_info": {
+        "front_left_foot": {
+            "position": [
+                0.2566434144973755,
+                0.17207784950733185,
+                0.03289434686303139
+            ],
+            "gains_and_action_scaling_factor": "no_such_info",
+            "mass": 0.03999999910593033,
+            "bbox": [
+                [
+                    -0.01759999990463257,
+                    -0.01759999990463257,
+                    -0.01759999990463257
+                ],
+                [
+                    0.01759999990463257,
+                    0.01759999990463257,
+                    0.01759999990463257
+                ]
+            ]
+        },
+        "front_right_foot": {
+            "position": [
+                0.25664329528808594,
+                -0.17207783460617065,
+                0.03289428725838661
+            ],
+            "gains_and_action_scaling_factor": "no_such_info",
+            "mass": 0.03999999910593033,
+            "bbox": [
+                [
+                    -0.01759999990463257,
+                    -0.01759999990463257,
+                    -0.01759999990463257
+                ],
+                [
+                    0.01759999990463257,
+                    0.01759999990463257,
+                    0.01759999990463257
+                ]
+            ]
+        },
+        "rear_left_foot": {
+            "position": [
+                -0.12534663081169128,
+                0.1733931303024292,
+                0.01978655532002449
+            ],
+            "gains_and_action_scaling_factor": "no_such_info",
+            "mass": 0.03999999910593033,
+            "bbox": [
+                [
+                    -0.01759999990463257,
+                    -0.01759999990463257,
+                    -0.01759999990463257
+                ],
+                [
+                    0.01759999990463257,
+                    0.01759999990463257,
+                    0.01759999990463257
+                ]
+            ]
+        },
+        "rear_right_foot": {
+            "position": [
+                -0.1253466010093689,
+                -0.17339299619197845,
+                0.019786514341831207
+            ],
+            "gains_and_action_scaling_factor": "no_such_info",
+            "mass": 0.03999999910593033,
+            "bbox": [
+                [
+                    -0.01759999990463257,
+                    -0.01759999990463257,
+                    -0.01759999990463257
+                ],
+                [
+                    0.01759999990463257,
+                    0.01759999990463257,
+                    0.01759999990463257
+                ]
+            ]
+        }
+    }
+}

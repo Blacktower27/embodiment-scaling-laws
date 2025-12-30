@@ -1,0 +1,55 @@
+{
+    "robot_name": "gen_hexapod_268",
+    "drop_height": 1.3464,
+    "action_space": 30,
+    "apply_knee_joint_limit_scale_joint_names": {
+        "leg_1_knee_joint": 0,
+        "leg_2_knee_joint": 0,
+        "leg_3_knee_joint": 1,
+        "leg_4_knee_joint": 0,
+        "leg_5_knee_joint": 0,
+        "leg_6_knee_joint": 0
+    },
+    "apply_knee_joint_limit_scale_factor": 0.6,
+    "nominal_joint_positions": {
+        ".*_hip_joint": 0,
+        ".*_thigh_joint": 0.79,
+        ".*_knee_joint": 0.79,
+        ".*_knee_.*_joint": 0
+    },
+    "reward_cfgs": {
+        "feet_ground_contact_cfg": ".*foot",
+        "feet_ground_asset_cfg": ".*foot",
+        "undesired_contact_cfg": [
+            ".*calf.*",
+            ".*thigh.*",
+            ".*trunk.*"
+        ],
+        "joint_hip_cfg": [
+            ".*hip.*joint"
+        ],
+        "joint_knee_cfg": [
+            ".*knee.*joint"
+        ],
+        "illegal_contact_cfg": [
+            ".*trunk.*",
+            ".*hip.*",
+            ".*thigh.*",
+            ".*calf.*"
+        ]
+    },
+    "actuators": {
+        "base_legs": {
+            "motor_type": "DCMotor",
+            "joint_names_expr": [
+                ".*joint"
+            ],
+            "effort_limit": 23.5,
+            "saturation_effort": 23.5,
+            "velocity_limit": 30.0,
+            "stiffness": 25.0,
+            "damping": 0.5,
+            "friction": 0.0
+        }
+    }
+}

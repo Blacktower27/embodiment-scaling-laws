@@ -2,15 +2,15 @@ from __future__ import annotations
 
 from dataclasses import MISSING
 
-import omni.isaac.lab.sim as sim_utils
-from omni.isaac.lab.assets import ArticulationCfg
-from omni.isaac.lab.envs import DirectRLEnvCfg
-from omni.isaac.lab.managers import SceneEntityCfg
-from omni.isaac.lab.scene import InteractiveSceneCfg
-from omni.isaac.lab.sensors import ContactSensorCfg
-from omni.isaac.lab.sim import SimulationCfg
-from omni.isaac.lab.terrains import TerrainImporterCfg
-from omni.isaac.lab.utils import configclass
+import isaaclab.sim as sim_utils
+from isaaclab.assets import ArticulationCfg
+from isaaclab.envs import DirectRLEnvCfg
+from isaaclab.managers import SceneEntityCfg
+from isaaclab.scene import InteractiveSceneCfg
+from isaaclab.sensors import ContactSensorCfg
+from isaaclab.sim import SimulationCfg
+from isaaclab.terrains import TerrainImporterCfg
+from isaaclab.utils import configclass
 
 from embodiment_scaling_laws.assets.gen_hexapods import *
 
@@ -29,7 +29,7 @@ class GenHexapodEnvCfg(DirectRLEnvCfg):
     sim: SimulationCfg = SimulationCfg(
         dt=dt,
         render_interval=decimation,
-        disable_contact_processing=True,
+        # disable_contact_processing=True,
     )
     terrain = TerrainImporterCfg(
         prim_path="/World/ground",
