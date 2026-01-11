@@ -1,2 +1,0 @@
-Generated 332 gendog files. 
-The GT file is: gendog_8_KneeNum_fl1_fr1_rl1_rr1__ScaleJointLimit_fl0_fr0_rl0_rr0_1_0__Geo_scale_all_1_0

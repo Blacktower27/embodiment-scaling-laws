@@ -1,2 +1,0 @@
-Generated 348 genhumanoid files. 
-The GT file is: genhumanoid_12_KneeNum_l1_r1__ScaleJointLimit_l0_r0_1_0__Geo_scale_all_1_0

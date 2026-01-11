@@ -1,0 +1,43 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+dist/
+build/
+*.egg
+
+# 虚拟环境
+venv/
+env/
+.venv/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# Jupyter
+.ipynb_checkpoints/
+
+# 日志和输出
+logs/
+outputs/
+*.log
+
+# 数据和模型权重
+*.pt
+*.pth
+*.ckpt
+data/
+checkpoints/
+wandb/
+
+# 系统文件
+.DS_Store
+Thumbs.db
+
+# 环境变量
+.env
+
+exts/embodiment_scaling_laws/embodiment_scaling_laws/assets/Robots/GenBot1K-v7/

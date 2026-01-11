@@ -193,6 +193,19 @@ class LocomotionEnv(DirectRLEnv):
             "asset_cfg": self.all_bodies_cfg,
         }
         self.randomize_rigid_body_material = mdp.randomize_rigid_body_material(event_term_config, self)
+        mass_cfg = mdp.EventTermCfg()
+        mass_cfg.params = {
+            "asset_cfg": self.trunk_cfg,
+            "operation": "add",
+        }
+        self.randomize_rigid_body_mass = mdp.randomize_rigid_body_mass(mass_cfg, self)
+
+        joint_parameters_cfg = mdp.EventTermCfg()
+        joint_parameters_cfg.params = {
+            "asset_cfg": self.all_joints_cfg,
+            "operation": "abs",
+        }
+        self.randomize_joint_parameters = mdp.randomize_joint_parameters(joint_parameters_cfg, self)
 
         self.perturb_velocity_x_min = self.cfg.perturb_velocity_x_min
         self.perturb_velocity_x_max = self.cfg.perturb_velocity_x_max
@@ -566,8 +579,8 @@ class LocomotionEnv(DirectRLEnv):
         self.randomize_rigid_body_material(self, env_randomization_indices, (static_friction_min, static_friction_max), (dynamic_friction_min, dynamic_friction_max), (restitution_min, restitution_max), 64, self.all_bodies_cfg)
         
         # mdp.randomize_rigid_body_mass(self, env_randomization_indices, self.trunk_cfg, (self.added_trunk_mass_min * curriculum_coeff_1_cpu, self.added_trunk_mass_max * curriculum_coeff_1_cpu), "add")
-        
-        # mdp.randomize_physics_scene_gravity(self, env_randomization_indices, (self.added_gravity_min * curriculum_coeff_mean_cpu, self.added_gravity_max * curriculum_coeff_mean_cpu), "add")
+        self.randomize_rigid_body_mass(self, env_randomization_indices, self.trunk_cfg, (self.added_trunk_mass_min * curriculum_coeff_1_cpu, self.added_trunk_mass_max * curriculum_coeff_1_cpu), "add")
+        mdp.randomize_physics_scene_gravity(self, env_randomization_indices, (self.added_gravity_min * curriculum_coeff_mean_cpu, self.added_gravity_max * curriculum_coeff_mean_cpu), "add")
         
         middle_joint_friction = (self.joint_friction_min + self.joint_friction_max) / 2.0
         joint_friction_min = curriculum_coeff_1 * self.joint_friction_min + (1.0 - curriculum_coeff_1) * middle_joint_friction
@@ -577,6 +590,7 @@ class LocomotionEnv(DirectRLEnv):
         joint_armature_min = curriculum_coeff_1 * self.joint_armature_min + (1.0 - curriculum_coeff_1) * middle_joint_armature
         joint_armature_max = curriculum_coeff_1 * self.joint_armature_max + (1.0 - curriculum_coeff_1) * middle_joint_armature
         # mdp.randomize_joint_parameters(self, env_randomization_indices, self.all_joints_cfg, (joint_friction_min, joint_friction_max), (joint_armature_min, joint_armature_max), None, None, "abs")
+        self.randomize_joint_parameters(self, env_randomization_indices, self.all_joints_cfg, (joint_friction_min, joint_friction_max), (joint_armature_min, joint_armature_max), None, None, "abs")
 
         # Perturbations
         if not all_envs:
